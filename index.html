@@ -1,5 +1,29 @@
 <html>
+
+<img src="" id="rainbow"/>
 <script>
+  console.log('about to fetch a raindow ');
+ fetch('img\\chart.jpg', {
+    method: 'GET',
+    body: JSON.stringify(),
+    withcredentials: false,
+    crossorigin: true,
+    mode: 'no-cors',
+    headers: {
+      'Content-type': 'application/json'
+    }
+  })
+    .then(response => {
+      console.log(response);
+      return response.blob()
+    })
+    .then(response => {
+      console.log(response);
+    });
+</script>
+<script>
+
+
   fetch('https://dadosabertos.camara.leg.br/api/v2/deputados?ordem=ASC&ordenarPor=nome',  { answer: 42 })
   .then((response) => response.json())
   .then((data) => console.log("Deputados ", data))
