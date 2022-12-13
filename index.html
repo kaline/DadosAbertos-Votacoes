@@ -1,8 +1,47 @@
 <html>
 <script>
-fetch('https://dadosabertos.camara.leg.br/api/v2/votacoes?ordem=DESC&ordenarPor=dataHoraRegistro')
+  fetch('https://dadosabertos.camara.leg.br/api/v2/deputados?ordem=ASC&ordenarPor=nome',  { answer: 42 })
   .then((response) => response.json())
-  .then((data) => console.log(data));
+  .then((data) => console.log("Deputados ", data))
+  .catch((error) => {
+    console.error('Error: ', error)
+  })
+
+  fetch('https://dadosabertos.camara.leg.br/api/v2/deputados/204554',  { answer: 42 })
+  .then((response) => response.json())
+  .then((data) => console.log("Deputados ID ", data))
+  .catch((error) => {
+    console.error('Error: ', error)
+  })
+
+  fetch('https://dadosabertos.camara.leg.br/api/v2/proposicoes',  { answer: 42 })
+  .then((response) => response.json())
+  .then((data) => console.log("Proposicoes", data))
+  .catch((error) => {
+    console.error('Error: ', error)
+  })
+
+  fetch('https://dadosabertos.camara.leg.br/api/v2/proposicoes/15754',  { answer: 42 })
+  .then((response) => response.json())
+  .then((data) => console.log("Proposicoes ID ", data))
+  .catch((error) => {
+    console.error('Error: ', error)
+  })
+
+  fetch('https://dadosabertos.camara.leg.br/api/v2/votacoes?ordem=DESC&ordenarPor=dataHoraRegistro',  { answer: 42 })
+  .then((response) => response.json())
+  .then((data) => console.log("Votações ", data))
+  .catch((error) => {
+    console.error('Error: ', error)
+  })
+
+  fetch('https://dadosabertos.camara.leg.br/api/v2/votacoes/2335185-19',  { answer: 42 })
+  .then((response) => response.json())
+  .then((data) => console.log("Votações ID ", data))
+  .catch((error) => {
+    console.error('Error: ', error)
+  })
+
 </script>
 
 <html>
