@@ -1,0 +1,8 @@
+<html>
+<script>
+fetch('https://dadosabertos.camara.leg.br/api/v2/votacoes?ordem=DESC&ordenarPor=dataHoraRegistro')
+  .then((response) => response.json())
+  .then((data) => console.log(data));
+</script>
+
+<html>
