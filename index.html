@@ -8,7 +8,9 @@
 
 <script>
 
-  getImg()
+  const arrayImages = ['img/image1.jpg', 'img/image2.jpg', 'img/image3.jpg']
+  getImg(arrayImages)
+
   .then(response => {
       console.log('response');
     })
@@ -16,14 +18,10 @@
       console.error(error)
     })
 
-  async function getImg() {
-
-    let arrayImages = [];
-    arrayImages.push('img/image1.jpg', 'img/image2.jpg', 'img/image3.jpg')
+  async function getImg(arrayImages) {
 
     console.log('Array of images ', arrayImages)
 
-    console.log('about to fetch a raindow ');
     for(let image of arrayImages) {
       const response = await fetch(image, {
         method: 'GET',
@@ -31,8 +29,11 @@
         mode: 'no-cors',
       })
       const blob = await response.blob();
-      document.getElementById('image1').src = URL.createObjectURL(blob); 
-      revokeObjectURL(blob);
+      const img = document.createElement('img');
+      img.src = URL.createObjectURL(blob); 
+      img.width = '200';
+      document.body.append(img);
+      
     }
     }
    
