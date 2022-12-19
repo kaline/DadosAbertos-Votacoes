@@ -1,89 +1,24 @@
-<html>
-
+<!DOCTYPE html>
+<html lang="pt">
 <body>
-
-<script>
-
-  const arrayImages = ['img/image1.jpg', 'img/image2.jpg', 'img/image3.jpg']
-  getImg(arrayImages)
-
-  .then(response => {
-      console.log('response');
-    })
-    .catch(error => {
-      console.error(error)
-    })
-
-  async function getImg(arrayImages) {
-
-    console.log('Array of images ', arrayImages)
-
-    for(let image of arrayImages) {
-      const response = await fetch(image, {
-        method: 'GET',
-        crossorigin: true,
-        mode: 'no-cors',
-      })
-      const blob = await response.blob();
-      const img = document.createElement('img');
-      img.src = URL.createObjectURL(blob); 
-      img.width = '200';
-      document.body.append(img);
-      
-    }
-    }
-   
-
-
-</script>
-<script>
-
-
-  fetch('https://dadosabertos.camara.leg.br/api/v2/deputados?ordem=ASC&ordenarPor=nome',  { answer: 42 })
-  .then((response) => response.json())
-  .then((data) => console.log("Deputados ", data, typeof(data)))
-  .catch((error) => {
-    console.error('Error: ', error)
-  })
-
-  fetch('https://dadosabertos.camara.leg.br/api/v2/deputados/204554',  { answer: 42 })
-  .then((response) => response.json())
-  .then((data) => console.log("Deputados ID ", data))
-  .catch((error) => {
-    console.error('Error: ', error)
-  })
-
-  fetch('https://dadosabertos.camara.leg.br/api/v2/proposicoes',  { answer: 42 })
-  .then((response) => response.json())
-  .then((data) => console.log("Proposicoes", data))
-  .catch((error) => {
-    console.error('Error: ', error)
-  })
-
-  fetch('https://dadosabertos.camara.leg.br/api/v2/proposicoes/15754',  { answer: 42 })
-  .then((response) => response.json())
-  .then((data) => console.log("Proposicoes ID ", data))
-  .catch((error) => {
-    console.error('Error: ', error)
-  })
-
-  fetch('https://dadosabertos.camara.leg.br/api/v2/votacoes?ordem=DESC&ordenarPor=dataHoraRegistro',  { answer: 42 })
-  .then((response) => response.json())
-  .then((data) => console.log("Votações ", data))
-  .catch((error) => {
-    console.error('Error: ', error)
-  })
-
-  fetch('https://dadosabertos.camara.leg.br/api/v2/votacoes/2335185-19',  { answer: 42 })
-  .then((response) => response.json())
-  .then((data) => console.log("Votações ID ", data))
-  .catch((error) => {
-    console.error('Error: ', error)
-  })
-
-</script>
-
 </body>
+<script src="https://code.highcharts.com/highcharts.js"></script>
+<script src="https://code.highcharts.com/modules/series-label.js"></script>
+<script src="https://code.highcharts.com/modules/exporting.js"></script>
+<script src="https://code.highcharts.com/modules/export-data.js"></script>
+<script src="https://code.highcharts.com/modules/accessibility.js"></script>
 
+<figure class="highcharts-figure">
+    <div id="container"></div>
+    <p class="highcharts-description">
+        Basic line chart showing trends in a dataset. This chart includes the
+        <code>series-label</code> module, which adds a label to each line for
+        enhanced readability.
+    </p>
+</figure>
+
+
+
+<script src="index.js"></script>
 
 <html>
